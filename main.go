@@ -8,7 +8,7 @@ import (
 
 	"context"
 
-	pb "proto/consignment"
+	pb "github.com/oentoro/consignment-service/proto/consignment"
 	"google.golang.org/grpc"
 )
 
