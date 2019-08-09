@@ -8,8 +8,8 @@ import (
 
 	"context"
 
-	pb "github.com/oentoro/consignment-service/proto/consignment"
 	micro "github.com/micro/go-micro"
+	pb "github.com/oentoro/consignment-service/proto/consignment"
 )
 
 const (
@@ -31,7 +31,7 @@ func main() {
 	// Set up a connection to the server.
 	service := micro.NewService(micro.Name("consingment.cli"))
 	service.Init()
-	client := pb.NewShippingServiceClient("consignment.service", service.Client())
+	client := pb.NewConsignmentServiceClient("consignment.service", service.Client())
 
 	// Contact the server and print out its response.
 	file := defaultFilename
@@ -45,7 +45,7 @@ func main() {
 		log.Fatalf("Could not parse file: %v", err)
 	}
 
-	r, err := client.CreateConsignment(context.Background(), consignment)
+	r, err := client.Create(context.Background(), consignment)
 	if err != nil {
 		log.Fatalf("Could not greet: %v", err)
 	}
