@@ -4,6 +4,5 @@ build:
 	rm consignment-cli
 run:
 	docker run consignment-cli
-
 clean:
 	rm consignment-cli
